@@ -15,6 +15,8 @@ function resetGame () {
 	p2Score.textContent = 0;
 	p2Score.classList.remove("has-text-success", "has-text-danger");
 	isGameOver = false;
+	p1IncreaseButton.disabled = false;
+	p2IncreaseButton.disabled = false;
 }
 
 function incrementScore (playerNumber, opponentNumber) {
@@ -26,6 +28,8 @@ function incrementScore (playerNumber, opponentNumber) {
 			isGameOver = true;
 			playerNumber.classList.add("has-text-success");
 			opponentNumber.classList.add("has-text-danger");
+			p1IncreaseButton.disabled = true;
+			p2IncreaseButton.disabled = true;
 		}
 		playerNumber.textContent = newScore;
 	}
