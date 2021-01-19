@@ -5,22 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Score Keeper</title>
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 </head>
 
 <body>
 
-    <h1><span id="p1Score">0</span> - <span id="p2Score">0</span></h1>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="card">
 
-    <select id="roundsSelect">
-        <option value="3">3</option>
-        <option value="5">5</option>
-        <option value="7">7</option>
-    </select>
+                        <div class="card-image">
+                            <figure class="image is-2by1">
+                                <img src="https://images.unsplash.com/photo-1609710228159-0fa9bd7c0827?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+                                    alt="Card Header">
+                            </figure>
+                        </div>
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                "First-to" Score Keeper
+                            </p>
+                        </header>
 
-    <button id="p1Increase">Player One +1</button>
-    <button id="p2Increase">Player Two +1</button>
-    <button id="reset">Reset</button>
+                        <div class="card-content">
+                            <div class="content">
+                                <h1 class="title is-1"><span id="p1Score">0</span> - <span id="p2Score">0</span></h1>
+                                <p class="subtitle">Use the buttons below to keep score</p>
+
+                                <label for="roundsSelect" class="label is-large is-inline">First to: </label>
+                                <div class="select is-rounded">
+                                    <select id="roundsSelect">
+                                        <option value="3" selected>3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <footer class="card-footer">
+                            <button id="p1Increase" class="card-footer-item is-primary button">Player One +1</button>
+                            <button id="p2Increase" class="card-footer-item is-info button">Player Two +1</button>
+                            <button id="reset" class="card-footer-item is-danger button">Reset</button>
+                        </footer>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
 

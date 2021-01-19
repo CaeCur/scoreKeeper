@@ -11,9 +11,9 @@ let isGameOver = false;
 // Functions //
 function resetGame () {
 	p1Score.textContent = 0;
-	p1Score.classList.remove("winner", "loser");
+	p1Score.classList.remove("has-text-success", "has-text-danger");
 	p2Score.textContent = 0;
-	p2Score.classList.remove("winner", "loser");
+	p2Score.classList.remove("has-text-success", "has-text-danger");
 	isGameOver = false;
 }
 
@@ -24,8 +24,8 @@ function incrementScore (playerNumber, opponentNumber) {
 		let newScore = currentScore + 1;
 		if (newScore === winningScore) {
 			isGameOver = true;
-			playerNumber.classList.add("winner");
-			opponentNumber.classList.add("loser");
+			playerNumber.classList.add("has-text-success");
+			opponentNumber.classList.add("has-text-danger");
 		}
 		playerNumber.textContent = newScore;
 	}
