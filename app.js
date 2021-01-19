@@ -3,36 +3,48 @@ const p2Score = document.querySelector("#p2Score");
 const p1IncreaseButton = document.querySelector("#p1Increase");
 const p2IncreaseButton = document.querySelector("#p2Increase");
 const resetButton = document.querySelector("#reset");
+const winningScoreSelect = document.querySelector("#roundsSelect");
 
-let winningScore = 5;
+let winningScore = parseInt(winningScoreSelect.value);
 let isGameOver = false;
 
-p1IncreaseButton.addEventListener("click", function () {
-	const currentScore = parseInt(p1Score.textContent);
+// Functions //
+function resetGame () {
+	p1Score.textContent = 0;
+	p1Score.classList.remove("winner", "loser");
+	p2Score.textContent = 0;
+	p2Score.classList.remove("winner", "loser");
+	isGameOver = false;
+}
+
+function incrementScore (playerNumber, opponentNumber) {
+	const currentScore = parseInt(playerNumber.textContent);
 
 	if (!isGameOver) {
 		let newScore = currentScore + 1;
 		if (newScore === winningScore) {
 			isGameOver = true;
+			playerNumber.classList.add("winner");
+			opponentNumber.classList.add("loser");
 		}
-		p1Score.textContent = newScore;
+		playerNumber.textContent = newScore;
 	}
+}
+// Functions End //
+
+// Score Increments //
+p1IncreaseButton.addEventListener("click", function () {
+	incrementScore(p1Score, p2Score);
 });
 
 p2IncreaseButton.addEventListener("click", function () {
-	const currentScore = parseInt(p2Score.textContent);
-
-	if (!isGameOver) {
-		let newScore = currentScore + 1;
-		if (newScore === winningScore) {
-			isGameOver = true;
-		}
-		p2Score.textContent = newScore;
-	}
+	incrementScore(p2Score, p1Score);
 });
+// Score Increments End //
 
-resetButton.addEventListener("click", function () {
-	p1Score.textContent = 0;
-	p2Score.textContent = 0;
-	isGameOver = false;
+resetButton.addEventListener("click", resetGame);
+
+winningScoreSelect.addEventListener("change", function () {
+	winningScore = parseInt(this.value);
+	resetGame();
 });
